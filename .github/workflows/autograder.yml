@@ -32,7 +32,8 @@ jobs:
         run: |
           mkdir -p student_work
           cp student_repo/Test-housing.ipynb student_work/
-          python master_repo/grader/evaluator.py 2>&1 | tee result.txt
+          python master_repo/grader/evaluator.py > result.txt 2>&1 || { cat result.txt; exit 1; }
+          cat result.txt
           SCORE=$(grep "^SCORE:" result.txt | cut -d':' -f2 | tr -d ' ')
           SCORE=${SCORE:-0}
           echo "STUDENT_SCORE=$SCORE" >> $GITHUB_ENV
