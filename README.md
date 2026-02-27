@@ -90,7 +90,7 @@ cd mla-day1-workshop-student
 ### Step 3: Create a Working Branch
 Do **not** work on `main`. Create a new branch for your submission:
 ```bash
-git checkout -b submission/<date-your-group-name>  # submission/20260227-group-1
+git checkout -b submission/<date-your-fullname>  # submission/20260227-pengbin
 ```
 
 ### Step 4: Complete the Exercise
@@ -100,7 +100,7 @@ Open `Test-housing.ipynb` and fill in all the `# TODO` sections. Save your work 
 ```bash
 git add Test-housing.ipynb
 git commit -m "Complete workshop exercise"
-git push origin submission/<date-your-group-name>
+git push origin submission/<date-your-fullname>
 ```
 Then go to GitHub and open a **Pull Request** from your branch to `main`. The autograder will run automatically and post your score as a workflow result.
 
