@@ -6,6 +6,7 @@ on:
 jobs:
   grade:
     runs-on: ubuntu-latest
+    environment: "Action Workflows"
     steps:
       - name: Checkout Student Code
         uses: actions/checkout@v4
