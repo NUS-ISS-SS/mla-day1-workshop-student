@@ -36,7 +36,9 @@ jobs:
           cat result.txt
           SCORE=$(grep "^SCORE:" result.txt | cut -d':' -f2 | tr -d ' ')
           SCORE=${SCORE:-0}
+          RMSE=$(grep "^RMSE:" result.txt | cut -d':' -f2 | tr -d ' ')
           echo "STUDENT_SCORE=$SCORE" >> $GITHUB_ENV
+          echo "STUDENT_RMSE=$RMSE" >> $GITHUB_ENV
 
       - name: Send Score to Master Leaderboard
         run: |
@@ -44,5 +46,5 @@ jobs:
             -H "Authorization: token ${{ secrets.GRADER_ACCESS_TOKEN }}" \
             -H "Accept: application/vnd.github.v3+json" \
             -X POST \
-            -d "{\"event_type\": \"update_score\", \"client_payload\": {\"user\": \"${{ github.actor }}\", \"score\": ${{ env.STUDENT_SCORE }}}}" \
+            -d "{\"event_type\": \"update_score\", \"client_payload\": {\"user\": \"${{ github.actor }}\", \"score\": ${{ env.STUDENT_SCORE }}, \"rmse\": \"${{ env.STUDENT_RMSE }}\"}}" \
             https://api.github.com/repos/NUS-ISS-SS/mla-day1-workshop-master/dispatches
