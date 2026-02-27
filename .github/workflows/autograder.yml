@@ -1,0 +1,47 @@
+name: ML Workshop Autograder
+on:
+  push:
+    branches-ignore: [ main ]  # Only runs when they push to a new branch (not main)
+
+jobs:
+  grade:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Student Code
+        uses: actions/checkout@v4
+        with:
+          path: student_repo
+
+      - name: Checkout Private Grader
+        uses: actions/checkout@v4
+        with:
+          repository: NUS-ISS-SS/mla-day1-workshop-master
+          token: ${{ secrets.GRADER_ACCESS_TOKEN }}
+          path: master_repo
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install Dependencies
+        run: pip install pandas scikit-learn nbformat numpy
+
+      - name: Run Grading
+        run: |
+          mkdir -p student_work
+          cp student_repo/Test-housing.ipynb student_work/
+          python master_repo/grader/evaluator.py > result.txt 2>&1
+          cat result.txt
+          SCORE=$(grep "^SCORE:" result.txt | cut -d':' -f2 | tr -d ' ')
+          SCORE=${SCORE:-0}
+          echo "STUDENT_SCORE=$SCORE" >> $GITHUB_ENV
+
+      - name: Send Score to Master Leaderboard
+        run: |
+          curl -f \
+            -H "Authorization: token ${{ secrets.GRADER_ACCESS_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            -X POST \
+            -d "{\"event_type\": \"update_score\", \"client_payload\": {\"user\": \"${{ github.actor }}\", \"score\": ${{ env.STUDENT_SCORE }}}}" \
+            https://api.github.com/repos/NUS-ISS-SS/mla-day1-workshop-master/dispatches
