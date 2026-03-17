@@ -83,57 +83,100 @@ Follow these steps to complete your assignment and submit it for grading via a P
 ### Step 1: Fork the Repository
 Navigate to the main page of this repository on GitHub:
 
-`https://github.com/NUS-ISS-SS/mla-day1-workshop-student`
+`https://github.com/NUS-ISS-SS/mla-day1-workshop-student/tree/development`
 
 In the top-right corner of the page, click the **Fork** button.
 
 Ensure your own GitHub account is selected as the owner. This creates a personal copy of the assignment under your account.
 
 ### Step 2: Clone Your Fork Locally
-Open your terminal (or Git Bash) and run the following commands. Replace `YOUR-USERNAME` with your actual GitHub username:
+Open your terminal (or Git Bash) and run the following commands. **Replace `YOUR-USERNAME` with your actual GitHub username**:
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/mla-day1-workshop-student.git
+git clone https://github.com/[YOUR-USERNAME]/mla-day1-workshop-student.git
 cd mla-day1-workshop-student
 ```
 
 ### Step 3: Create a Feature Branch
-Never work directly on the `main` branch. Create a new branch named after yourself or your student ID:
+Never work directly on the `main` branch. **Create a new branch named after yourself**:
 
 ```bash
-git checkout -b feature/your-name-submission
+git checkout -b feature/[your-name]-submission
 ```
 
-### Step 4: Complete Your Assignment
+### Step 4: Create a Virtual Environment
+Windows:
+
+```bash
+python -m venv ml-env
+```
+
+macOS / Linux:
+
+```bash
+python3 -m venv ml-env
+```
+
+### Step 5: Activate the Virtual Environment
+Windows:
+
+```bash
+ml-env\Scripts\activate
+```
+
+macOS / Linux:
+
+```bash
+source ml-env/bin/activate
+```
+
+You should see `(ml-env)` at the beginning of your terminal prompt once activated.
+
+### Step 6: Install Jupyter and ML Libraries
+With the virtual environment activated, run:
+
+```bash
+pip install notebook numpy scipy pandas matplotlib scikit-learn
+```
+
+### Step 7: Launch Jupyter Notebook
+
+```bash
+jupyter notebook
+```
+
+This will open Jupyter in your default browser. Navigate to and open the notebook files (`.ipynb`) to get started.
+
+### Step 8: Complete Your Assignment
 Open the project in your preferred editor, such as VS Code.
 
 Complete the required Python scripts or Jupyter notebooks.
 
 Ensure your code runs locally without errors.
 
-### Step 5: Commit and Push Changes
+### Step 9: Commit and Push Changes
 Once you are finished, save your work to GitHub:
 
 ```bash
 git add .
 git commit -m "Completed assignment: [Your Name]"
-git push origin feature/your-name-submission
+git push origin feature/[your-name]-submission
 ```
 
-### Step 6: Create the Pull Request (Submit)
-Go to your fork on GitHub, for example `github.com/YOUR-USERNAME/mla-day1-workshop-student`.
+### Step 10: Create the Pull Request (Submit)
+Go to your fork on GitHub, for example `github.com/[YOUR-USERNAME]/mla-day1-workshop-student`.
 
-You will see a yellow banner saying: `feature/your-name-submission had recent pushes...`
+You will see a yellow banner saying: `feature/[your-name]-submission had recent pushes...`
 
 Click the green **Compare & pull request** button.
 
 Important: Create the Pull Request **to the original repository you forked from**:
 
-`https://github.com/NUS-ISS-SS/mla-day1-workshop-student`
+`https://github.com/NUS-ISS-SS/mla-day1-workshop-student/tree/development`
 
-Ensure the **base repository** is `NUS-ISS-SS/mla-day1-workshop-student` and the **base** branch is `main`.
+Ensure the **base repository** is `NUS-ISS-SS/mla-day1-workshop-student` and the **base** branch is **`development`**.
 
-Title your PR as: `[Submission] Your Full Name - Student ID`.
+Title your PR as: `Submission-[Your Full Name]`.
 
 Click **Create pull request**.
 
