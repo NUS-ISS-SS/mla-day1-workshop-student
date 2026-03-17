@@ -1,7 +1,7 @@
 name: ML Workshop Autograder
 on:
-  push:
-    branches-ignore: [ main ]  # Only runs when they push to a new branch (not main)
+  pull_request_target:
+    branches: [ development ]  # Triggers when a PR targets the development branch
 
 jobs:
   grade:
@@ -11,6 +11,7 @@ jobs:
       - name: Checkout Student Code
         uses: actions/checkout@v4
         with:
+          ref: ${{ github.event.pull_request.head.sha }}
           path: student_repo
 
       - name: Checkout Private Grader
@@ -37,7 +38,7 @@ jobs:
           SCORE=$(grep "^SCORE:" result.txt | cut -d':' -f2 | tr -d ' ')
           SCORE=${SCORE:-0}
           RMSE=$(grep "^RMSE:" result.txt | cut -d':' -f2 | tr -d ' ')
-          BRANCH="${GITHUB_REF_NAME}"
+          BRANCH="${{ github.event.pull_request.head.ref }}"
           SUFFIX="${BRANCH#submission/}"
           FULLNAME_RAW="${SUFFIX#*-}"
           FULLNAME="${FULLNAME_RAW//-/ }"
