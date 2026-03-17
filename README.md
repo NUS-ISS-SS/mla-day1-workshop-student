@@ -2,7 +2,7 @@
 
 This repository contains materials for a hands-on machine learning workshop focused on regression techniques for housing price prediction.
 
-## 📚 Contents
+## Contents
 
 ### Demo Notebook
 - **`Demo-housing.ipynb`** - Instructor demonstration notebook using California housing data
@@ -24,7 +24,7 @@ This repository contains materials for a hands-on machine learning workshop focu
   - Advanced techniques: skewness correction, interaction features, ensemble methods
   - Evaluation on test set (no ground truth labels provided)
 
-## 📁 Datasets
+## Datasets
 
 All datasets are located in `datasets/housing/`:
 
@@ -36,7 +36,7 @@ All datasets are located in `datasets/housing/`:
   - `data_description.txt` - Detailed feature descriptions
 
 
-## 🎯 Learning Objectives
+## Learning Objectives
 
 By the end of this workshop, students will be able to:
 
@@ -68,7 +68,7 @@ By the end of this workshop, students will be able to:
    - Handle skewed distributions
    - Build interaction features
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 - **pandas** - Data manipulation and analysis
 - **numpy** - Numerical computing
@@ -76,42 +76,77 @@ By the end of this workshop, students will be able to:
 - **matplotlib** - Data visualization
 - **jupyter** - Interactive notebook environment
 
-## 🚀 How to Submit Your Work
+## How to Submit Your Work
 
-### Step 1: Fork this Repository
-Click the **Fork** button at the top-right of this page to create your own copy under your GitHub account.
+Follow these steps to complete your assignment and submit it for grading via a Pull Request (PR).
 
-### Step 2: Clone Your Fork
+### Step 1: Fork the Repository
+Navigate to the main page of this repository on GitHub:
+
+`https://github.com/NUS-ISS-SS/mla-day1-workshop-student`
+
+In the top-right corner of the page, click the **Fork** button.
+
+Ensure your own GitHub account is selected as the owner. This creates a personal copy of the assignment under your account.
+
+### Step 2: Clone Your Fork Locally
+Open your terminal (or Git Bash) and run the following commands. Replace `YOUR-USERNAME` with your actual GitHub username:
+
 ```bash
-git clone https://github.com/NUS-ISS-SS/mla-day1-workshop-student.git
+git clone https://github.com/YOUR-USERNAME/mla-day1-workshop-student.git
 cd mla-day1-workshop-student
 ```
 
-### Step 3: Create a Working Branch
-Do **not** work on `main`. Create a new branch for your submission:
+### Step 3: Create a Feature Branch
+Never work directly on the `main` branch. Create a new branch named after yourself or your student ID:
+
 ```bash
-git checkout -b submission/<date-your-fullname>  # submission/20260227-pengbin
+git checkout -b feature/your-name-submission
 ```
 
-### Step 4: Complete the Exercise
-Open `Test-housing.ipynb` and fill in all the `# TODO` sections. Save your work regularly.
+### Step 4: Complete Your Assignment
+Open the project in your preferred editor, such as VS Code.
 
-### Step 5: Push Your Branch and Open a Pull Request
+Complete the required Python scripts or Jupyter notebooks.
+
+Ensure your code runs locally without errors.
+
+### Step 5: Commit and Push Changes
+Once you are finished, save your work to GitHub:
+
 ```bash
-git add Test-housing.ipynb
-git commit -m "Complete workshop exercise"
-git push origin submission/<date-your-fullname>
+git add .
+git commit -m "Completed assignment: [Your Name]"
+git push origin feature/your-name-submission
 ```
-Then go to GitHub and open a **Pull Request** from your branch to `main`. The autograder will run automatically and post your score as a workflow result.
 
-> **Note:** Direct pushes to `main` are blocked. You must submit via a branch and Pull Request.
+### Step 6: Create the Pull Request (Submit)
+Go to your fork on GitHub, for example `github.com/YOUR-USERNAME/mla-day1-workshop-student`.
 
-## 📖 Additional Resources
+You will see a yellow banner saying: `feature/your-name-submission had recent pushes...`
+
+Click the green **Compare & pull request** button.
+
+Important: Create the Pull Request **to the original repository you forked from**:
+
+`https://github.com/NUS-ISS-SS/mla-day1-workshop-student`
+
+Ensure the **base repository** is `NUS-ISS-SS/mla-day1-workshop-student` and the **base** branch is `main`.
+
+Title your PR as: `[Submission] Your Full Name - Student ID`.
+
+Click **Create pull request**.
+
+### Success
+Once submitted, the automated GitHub Actions will trigger to run tests on your code.
+
+If the tests fail (red X), check the logs, fix your code, and simply `git push` again. The PR will update automatically.
+
+If the tests pass (green check), your submission is ready for manual review.
+
+## Additional Resources
 
 - [scikit-learn Documentation](https://scikit-learn.org/stable/)
 - [Pandas Documentation](https://pandas.pydata.org/docs/)
 - [NumPy Documentation](https://numpy.org/doc/stable/)
 
-## 📄 License
-
-This project is for educational purposes.
