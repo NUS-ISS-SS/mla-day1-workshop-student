@@ -76,11 +76,37 @@ By the end of this workshop, students will be able to:
 - **matplotlib** - Data visualization
 - **jupyter** - Interactive notebook environment
 
-## How to Submit Your Work
+## How to Get Started
 
+There are two ways to participate in this workshop. Choose the one that best fits your technical comfort level:
+
+- Option A: Use an online environment. No installation required. 
+- Option B: Set up a local environment on your own computer using Git and Python.
+
+### Option A: Quick Start (No Installation Required)
+If you don't have Python installed or want to skip the technical setup, you can run the entire workshop in your web browser using [Binder](https://mybinder.org/).
+
+#### Step 1: Launch the Environment
+1. Open Binder: Go to https://mybinder.org/, 
+2. Enter Repository URL: Copy and paste the `https://github.com/NUS-ISS-SS/mla-day1-workshop-student` into the **GitHub** field.
+3. Specify Branch: Type `development` in the **Git ref** field.
+4. Launch: Click the **launch** button below to start a temporary online session. 
+   **Note**:It may take 1–2 minutes to build the environment for the first time.
+
+#### Step 2: Working in the Notebook
+Once the page loads, you will see a file list. Click on `Test-housing.ipynb` to start your exercises.
+
+#### Step 3: How to Save Your Work
+Once you complete your exercise, you must manually save your work to your own computer and then upload the file to Canvas.
+1. In the Jupyter menu, go to File > Download.
+2. Save the `Test-housing.ipynb` file to your computer.
+3. Rename your file to `[Your_Name]_Housing.ipynb` and then upload this file to Canvas.
+
+
+### Option B: Local Setup
 Follow these steps to complete your assignment and submit it for grading via a Pull Request (PR).
 
-### Step 1: Fork the Repository
+#### Step 1: Fork the Repository
 Navigate to the main page of this repository on GitHub:
 
 `https://github.com/NUS-ISS-SS/mla-day1-workshop-student/tree/development`
@@ -89,7 +115,7 @@ In the top-right corner of the page, click the **Fork** button.
 
 Ensure your own GitHub account is selected as the owner. This creates a personal copy of the assignment under your account.
 
-### Step 2: Clone Your Fork Locally
+#### Step 2: Clone Your Fork Locally
 Open your terminal (or Git Bash) and run the following commands. **Replace `YOUR-USERNAME` with your actual GitHub username**:
 
 ```bash
@@ -97,14 +123,14 @@ git clone https://github.com/[YOUR-USERNAME]/mla-day1-workshop-student.git
 cd mla-day1-workshop-student
 ```
 
-### Step 3: Create a Feature Branch
+#### Step 3: Create a Feature Branch
 Never work directly on the `main` branch. **Create a new branch named after yourself**:
 
 ```bash
 git checkout -b feature/[your-name]-submission
 ```
 
-### Step 4: Create a Virtual Environment
+#### Step 4: Create a Virtual Environment
 Windows:
 
 ```bash
@@ -117,7 +143,7 @@ macOS / Linux:
 python3 -m venv ml-env
 ```
 
-### Step 5: Activate the Virtual Environment
+#### Step 5: Activate the Virtual Environment
 Windows:
 
 ```bash
@@ -132,14 +158,14 @@ source ml-env/bin/activate
 
 You should see `(ml-env)` at the beginning of your terminal prompt once activated.
 
-### Step 6: Install Jupyter and ML Libraries
+#### Step 6: Install Jupyter and ML Libraries
 With the virtual environment activated, run:
 
 ```bash
 pip install notebook numpy scipy pandas matplotlib scikit-learn
 ```
 
-### Step 7: Launch Jupyter Notebook
+#### Step 7: Launch Jupyter Notebook
 
 ```bash
 jupyter notebook
@@ -147,14 +173,14 @@ jupyter notebook
 
 This will open Jupyter in your default browser. Navigate to and open the notebook files (`.ipynb`) to get started.
 
-### Step 8: Complete Your Assignment
+#### Step 8: Complete Your Assignment
 Open the project in your preferred editor, such as VS Code.
 
 Complete the required Python scripts or Jupyter notebooks.
 
 Ensure your code runs locally without errors.
 
-### Step 9: Commit and Push Changes
+#### Step 9: Commit and Push Changes
 Once you are finished, save your work to GitHub:
 
 ```bash
@@ -163,7 +189,7 @@ git commit -m "Completed assignment: [Your Name]"
 git push origin feature/[your-name]-submission
 ```
 
-### Step 10: Create the Pull Request (Submit)
+#### Step 10: Create the Pull Request (Submit)
 Go to your fork on GitHub, for example `github.com/[YOUR-USERNAME]/mla-day1-workshop-student`.
 
 You will see a yellow banner saying: `feature/[your-name]-submission had recent pushes...`
