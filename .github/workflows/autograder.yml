@@ -7,9 +7,6 @@ jobs:
   grade:
     runs-on: ubuntu-latest
     environment: "Action Workflows"
-    permissions:
-      contents: read
-      models: read
     steps:
       - name: Checkout Student Code
         uses: actions/checkout@v4
@@ -34,7 +31,7 @@ jobs:
 
       - name: Run Grading
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_MODELS_TOKEN: ${{ secrets.MODELS_TOKEN }}
         run: |
           mkdir -p student_work
           cp student_repo/Test-housing.ipynb student_work/
